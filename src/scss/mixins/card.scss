@@ -1,0 +1,47 @@
+/** @format */
+@import "./variables";
+
+@mixin card($title, $describe, $link, $url) {
+  width: 100%;
+  height: 100vh;
+  background: url($url);
+  background-position: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+  h4 {
+    font-size: $titleFont;
+    margin-bottom: 70px;
+    &:after {
+      content: $title;
+    }
+  }
+  h3 {
+    width: 30%;
+    font-size: $descFont;
+    text-align: center;
+    margin-bottom: 50px;
+    line-height: 1.3;
+    &:after {
+      content: $describe;
+    }
+  }
+  a {
+    font-size: 8px;
+    border: 2px $white solid;
+    padding: 20px 90px;
+    &:hover {
+      cursor: pointer;
+      transition: ease-in-out 0.3s background-color, ease-in-out 0.3s color;
+      background-color: $white;
+      color: black;
+    }
+    &:after {
+      content: $link;
+    }
+  }
+}
