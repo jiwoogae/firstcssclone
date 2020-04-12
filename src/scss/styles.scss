@@ -2,11 +2,6 @@
 @import "./reset.scss";
 @import "./variables";
 
-@import "./mixins/bigCard.scss";
-@import "./extends/smallCard.scss";
-@import "./mixins/product.scss";
-@import "./mixins/images.scss";
-
 * {
   box-sizing: border-box;
 }
@@ -17,251 +12,53 @@ a {
 }
 
 body {
+  height: 100vh;
   width: 100vw;
-  background-color: $white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  & > *:not(footer) {
-    padding: 0 160px;
-  }
-  header {
-    background-color: $white;
-    font-size: 10px;
-    font-weight: 300;
+  background-color: $brown;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  border: 1px $brown solid;
+  .body_column {
     display: grid;
-    grid-template-columns: 8fr 8fr 3fr;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    min-height: 100px;
-    max-height: 300px;
-    width: 100%;
-    z-index: 2;
-    .header_column {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
+    grid-template-rows: 1fr 8fr 1fr;
+    background-color: white;
+    & > * {
+      border-bottom: solid 1px $brown;
+    }
+    color: $brown;
+    font-size: 30px;
+    font-weight: 400;
+    &:nth-child(2) {
+      .image {
+        background-image: url("https://images.unsplash.com/photo-1583309219338-a582f1f9ca6b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1364&q=80");
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+    div {
       &:nth-child(1) {
-        span {
-          &:nth-child(1) {
-            margin-right: 20px;
-          }
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       &:nth-child(2) {
         display: grid;
-        grid-template-columns: repeat(3, 20px);
-        grid-template-rows: repeat(3, 20px);
-        justify-items: center;
-        align-items: center;
-        padding-left: 70px;
-      }
-      &:nth-child(3) {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 80px;
+        grid-template-rows: repeat(5, auto);
         div {
-          span {
-            &:nth-child(1) {
-              font-size: 20px;
-            }
-            &:nth-child(2) {
-              opacity: 0.7;
-            }
-          }
-        }
-      }
-    }
-  }
-  main {
-    width: 100%;
-    padding-top: 100px;
-    div {
-      width: 100%;
-      .firstImg {
-        @include bigCard(
-          "SS20 LAUNCH",
-          "Say aloha to our new spring Power Couple: Like Lush + Like Flora. ",
-          "EXPLORE NOW",
-          "https://cdn.shopify.com/s/files/1/0086/4865/4895/files/003_5_1280x743_crop_center.jpeg?v=1585791889"
-        );
-        margin-bottom: 150px;
-      }
-      .secondImg {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        width: 100%;
-        height: 100vh;
-        div {
-          &:nth-child(1) {
-            width: 100%;
-            background: url("https://cdn.shopify.com/s/files/1/0086/4865/4895/files/PAINTBOX-UES_0031_0fbfcd0d-eb41-4455-9911-32370c973c2c_960x960_crop_center.jpeg?v=1574101246");
-            background-position: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-          }
-          &:nth-child(2) {
-            background-color: $baisy;
-            padding: 200px 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            .secondedesc {
-              font-size: $titleFont;
-              margin-bottom: 50px;
-            }
-            .secondeSubdesc {
-              width: 80%;
-              font-size: 35px;
-              font-weight: 200;
-              text-align: center;
-              margin-bottom: 70px;
-              line-height: 1.3;
-            }
-            a {
-              display: grid;
-              grid-template-columns: 9fr 1fr;
-              align-items: center;
-              font-size: 8px;
-              border: 2px black solid;
-              padding: 10px 50px;
-              transition: 0.3s linear background-color, 0.3s linear color;
-              &:hover {
-                background-color: black;
-                color: $white;
-              }
-              span {
-                &:nth-child(1) {
-                  margin-right: 20px;
-                }
-                &:nth-child(2) {
-                  font-size: 20px;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    section {
-      width: 100%;
-      height: 130vh;
-      padding-top: 4 0px;
-      display: grid;
-      grid-template-rows: 1fr 2fr 1fr;
-      grid-template-rows: auto auto;
-      div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding-top: 100px;
-        h4 {
-          font-size: $titleFont;
-          margin-top: 100px;
-          margin-bottom: 30px;
-          font-weight: 200;
-        }
-        h3 {
-          width: 50%;
-          font-size: 30px;
-          font-weight: 200;
-          text-align: center;
-          margin-bottom: 150px;
-          line-height: 1.3;
-        }
-      }
-      ul {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        li {
-          height: 80vh;
           width: 100%;
-          padding-top: 50px;
-          &:nth-child(1) {
-            @include product(
-              "https://cdn.shopify.com/s/files/1/0086/4865/4895/products/SS20POWERCOUPLE_320x400_crop_center.png?v=1585835776"
-            );
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &:not(:nth-child(5)) {
+            border-bottom: solid 1px $brown;
           }
-          &:nth-child(2) {
-            @include product(
-              "https://cdn.shopify.com/s/files/1/0086/4865/4895/products/Holiday19.BottlesDuo_320x400_crop_center.jpg?v=1586206064"
-            );
+          &:hover {
+            background-color: $brown;
+            color: white;
           }
-          &:nth-child(3) {
-            @include product(
-              "https://cdn.shopify.com/s/files/1/0086/4865/4895/products/Holiday19.BottlesDuo_320x400_crop_center.png?v=1572544147"
-            );
-          }
-        }
-      }
-    }
-    .thirdImg {
-      @include bigCard(
-        "GIFT CARDS",
-        "Give the gift of the Paintbox Experience for a manicure that tells a story. ",
-        "GET GIFTING",
-        "https://cdn.shopify.com/s/files/1/0086/4865/4895/files/IMG_3566_65a3b457-7a2f-474d-81c1-56eec598fcdd_1280x743_crop_center.jpg?v=1561045055"
-      );
-      margin-bottom: 150px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(3, 60vh);
-      div {
-        &:nth-child(1) {
-          @include images(
-            "https://cdn.shopify.com/s/files/1/0086/4865/4895/articles/010_2_2048x2048_223d374a-0895-451c-9833-f11a6a6c67ef_1440x970_crop_center.jpeg?v=1586200588"
-          );
-        }
-        &:nth-child(2) {
-          @extend %smallCard;
-        }
-        &:nth-child(3) {
-          @extend %smallCard;
-        }
-        &:nth-child(4) {
-          @include images(
-            "https://cdn.shopify.com/s/files/1/0086/4865/4895/articles/010_2_2048x2048_223d374a-0895-451c-9833-f11a6a6c67ef_1440x970_crop_center.jpeg?v=1586200588"
-          );
-          background-size: cover;
-        }
-        &:nth-child(5) {
-          @include images(
-            "https://cdn.shopify.com/s/files/1/0086/4865/4895/articles/010_2_2048x2048_223d374a-0895-451c-9833-f11a6a6c67ef_1440x970_crop_center.jpeg?v=1586200588"
-          );
-        }
-        &:nth-child(6) {
-          @extend %smallCard;
-        }
-      }
-    }
-  }
-  footer {
-    bottom: 0;
-    width: 100%;
-    height: 300px;
-    background-color: $baisy;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-top: 100px;
-    padding: 80px 300px;
-    & > *:not(:nth-child(3)) {
-      border-right: 1px solid black;
-    }
-    section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      span {
-        margin-bottom: 10px;
-        font-weight: 300;
-        &:nth-child(1) {
-          opacity: 0.5;
-          margin-bottom: 30px;
         }
       }
     }
