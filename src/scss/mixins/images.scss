@@ -1,0 +1,9 @@
+/** @format */
+
+@mixin images($url) {
+  width: 100%;
+  background: url($url);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

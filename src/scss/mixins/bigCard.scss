@@ -1,13 +1,10 @@
 /** @format */
 @import "./variables";
+@import "./images.scss";
 
-@mixin card($title, $describe, $link, $url) {
-  width: 100%;
+@mixin bigCard($title, $describe, $link, $url) {
   height: 100vh;
-  background: url($url);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+  @include images($url);
   color: $white;
   display: flex;
   flex-direction: column;
