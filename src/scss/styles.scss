@@ -20,7 +20,6 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   & > *:not(footer) {
     padding: 0 160px;
-    padding-top: 100px;
   }
   header {
     background-color: $white;
@@ -204,10 +203,10 @@ body {
         "https://cdn.shopify.com/s/files/1/0086/4865/4895/files/IMG_3566_65a3b457-7a2f-474d-81c1-56eec598fcdd_1280x743_crop_center.jpg?v=1561045055"
       );
     }
-    footer {
-      bottom: 0;
-      width: 100%;
-      height: 100px;
-    }
+  }
+  footer {
+    bottom: 0;
+    width: 100%;
+    height: 100px;
   }
 }
